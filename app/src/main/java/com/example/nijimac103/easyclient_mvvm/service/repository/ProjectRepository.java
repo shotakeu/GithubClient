@@ -46,7 +46,7 @@ public class ProjectRepository {
         return projectRepository;
     }
 
-    //APIにリクエストし、レスポンスをLiveDataで返す
+    //APIにリクエストし、レスポンスをLiveDataで返す(一覧)
     public LiveData<List<Project>> getProjectList(String userId) {
         final MutableLiveData<List<Project>> data = new MutableLiveData<>();
 
@@ -67,7 +67,30 @@ public class ProjectRepository {
         return data;
     }
 
-    //遅延オプション
+    //APIにリクエストし、レスポンスをLiveDataで返す(詳細)
+    //うまくenqueueでのCallbackをOverrideできない場合、Retrofitインターフェースの型指定など間違えて居る可能性あり
+    public LiveData<Project> getProjectDetails(String userID,String projectName) {
+        final MutableLiveData<Project> data = new MutableLiveData<>();
+
+        githubService.getProjectDetails(userID,projectName).enqueue(new Callback<Project>() {
+            @Override
+            public void onResponse(Call<Project> call, Response<Project> response) {
+                simulateDelay();
+                data.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Project> call, Throwable t) {
+                //TODO: null代入良くない + エラー処理
+                data.setValue(null);
+            }
+        });
+        return data;
+    }
+
+
+    //引用：マルチスレッドの並列処理で無限ループを実行していた場合、CPUの負荷が大きくなりリソースを消費してメモリリークなどPCの動作が重くなる要因となってしまいます。
+    //そのため、マルチスレッドの処理中にsleepメソッドを使用して、処理を一時停止すればCPUの負荷を抑えられることができます。
     private void simulateDelay() {
         try {
             Thread.sleep(10);

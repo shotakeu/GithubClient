@@ -13,9 +13,11 @@ interface GithubService {
     //Retrofitインターフェース(APIリクエストを管理)
     String HTTPS_API_GITHUB_URL = "https://api.github.com/";
 
+    //一覧
     @GET("users/{user}/repos")
     Call<List<Project>> getProjectList(@Path("user") String user);
 
+    //詳細
     @GET("/repos/{user}/{reponame}")
-    Call<List<Project>> getProjectDetails(@Path("user") String user,@Path("reponame") String projectName);
+    Call<Project> getProjectDetails(@Path("user") String user,@Path("reponame") String projectName);
 }

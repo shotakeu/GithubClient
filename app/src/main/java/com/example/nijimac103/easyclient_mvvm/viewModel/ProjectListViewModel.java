@@ -10,8 +10,8 @@ import com.example.nijimac103.easyclient_mvvm.service.repository.ProjectReposito
 import java.util.List;
 
 /**
- *
- * 実際のケースでは、結果データをObserving Viewに渡す前に変換が必要な場合があります。
+ * List<Project>のrepositoryから送られてくるデータとuiイベントに責務を持つViewModel
+ * 引用：実際のケースでは、結果データをObserving Viewに渡す前に変換が必要な場合があります。
  * 変換を行うには、以下のドキュメントに示すTransformationクラスを使用できます。
  * https : //developer.android.com/topic /libraries/architecture/livedata.html#transformations_of_livedata
  */
@@ -32,6 +32,4 @@ public class ProjectListViewModel extends AndroidViewModel {
     public LiveData<List<Project>> getProjectListObservable() {
         return projectListObservable;
     }
-
 }
-
