@@ -14,6 +14,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * ViewModelに対するデータプロバイダ
+ * レスポンスをLiveData Objectにラップする
+ */
 public class ProjectRepository {
 
     //Retrofitインターフェース
