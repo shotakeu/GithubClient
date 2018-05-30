@@ -60,6 +60,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
                     return project.id == old.id && Objects.equals(project.git_url, old.git_url);
                 }
             });
+            this.projectList = projectList;
+
+            //DiffUtilのメソッド=>差分を元にRecyclerViewAderpterのnotify系が呼ばれ、いい感じにアニメーションなどをやってくれます。
+            result.dispatchUpdatesTo(this);
         }
     }
 

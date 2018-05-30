@@ -49,7 +49,7 @@ public class ProjectFragment extends Fragment {
         //app:visibleGone="@{isLoading}"をtrueに
         binding.setIsLoading(true);
 
-        //データ監視を開始 -> 差分を監視して、
+        //データ監視を開始 -> 差分を監視して、ViewModelに伝える
         observeViewModel(viewModel);
 
     }
@@ -60,7 +60,7 @@ public class ProjectFragment extends Fragment {
            @Override
            public void onChanged(@Nullable Project project) {
                if (project != null){
-                   //更新するモデルがなければ、Loadingをfalse
+
                    binding.setIsLoading(false);
 
                    viewModel.setProject(project);
@@ -69,7 +69,8 @@ public class ProjectFragment extends Fragment {
        });
     }
 
-    // ProjectFragmentにIDを依存性注入する関数
+
+    //fragmentTofragmentでidを渡す
     public static ProjectFragment forProject(String projectID) {
         ProjectFragment fragment = new ProjectFragment();
         Bundle args = new Bundle();

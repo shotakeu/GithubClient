@@ -55,10 +55,11 @@ public class ProjectListFragment extends Fragment {
         observeViewModel(viewModel);
     }
 
-    //observe開始関数
+    //observe開始
     private void observeViewModel(ProjectListViewModel viewModel){
 
-        //データが更新されたらアップデートするように、Observerインスタンスを設定しコールバックでAdapterに伝達
+        //データが更新されたらアップデートするように、LifecycleOwnerを紐付け、ライフサイクル内にオブザーバを追加
+        //オブザーバーは、STARTED かRESUMED状態である場合にのみ、イベントを受信する
         viewModel.getProjectListObservable().observe(this, new Observer<List<Project>>() {
             @Override
             public void onChanged(@Nullable List<Project> projects) {

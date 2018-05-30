@@ -33,11 +33,9 @@ public class Project {
     public String default_branch;
 
 
-    //空コンストラクタ
     public Project() {
     }
 
-    //名前付きコンストラクタをオーバーロード
     public Project(String name) {
         this.name = name;
     }
