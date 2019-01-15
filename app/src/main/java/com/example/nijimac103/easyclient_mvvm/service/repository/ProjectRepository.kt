@@ -38,8 +38,10 @@ class ProjectRepository private constructor() {
         //Retrofitで非同期リクエスト->Callbackで(自分で実装したModel)型ListのMutableLiveDataにセット
         githubService.getProjectList(userId).enqueue(object : Callback<List<Project>> {
             override fun onResponse(call: Call<List<Project>>, response: Response<List<Project>>?) {
-                data.postValue(response!!.body())
-                Log.d("logs:", "getProjectList" + response.body().toString())
+                if (response != null) {
+                    data.postValue(response.body())
+                    Log.d("logs:", "getProjectList" + response.body().toString())
+                }
             }
 
             override fun onFailure(call: Call<List<Project>>, t: Throwable) {
@@ -58,10 +60,12 @@ class ProjectRepository private constructor() {
         val data = MutableLiveData<Project>()
 
         githubService.getProjectDetails(userID, projectName).enqueue(object : Callback<Project> {
-            override fun onResponse(call: Call<Project>, response: Response<Project>) {
-                simulateDelay()
-                data.postValue(response.body())
-                Log.d("logs:", "getProjectDetails" + response.body().toString())
+            override fun onResponse(call: Call<Project>, response: Response<Project>?) {
+                if (response != null) {
+                    simulateDelay()
+                    data.postValue(response.body())
+                    Log.d("logs:", "getProjectDetails" + response.body().toString())
+                }
             }
 
             override fun onFailure(call: Call<Project>, t: Throwable) {

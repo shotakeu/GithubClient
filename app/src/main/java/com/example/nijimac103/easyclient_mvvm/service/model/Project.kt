@@ -2,7 +2,7 @@ package com.example.nijimac103.easyclient_mvvm.service.model
 
 import java.util.*
 
-data class Project(var userName: String) {
+data class Project(val userName: String) {
     var id: Long = 0
     var name: String = userName
     var full_name: String? = null
