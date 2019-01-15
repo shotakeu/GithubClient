@@ -3,7 +3,9 @@ package com.example.nijimac103.easyclient_mvvm.view.ui;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,10 +27,10 @@ public class ProjectFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         // DataBinding対象のレイアウトをinflateする
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_project_details, container, false);
+        binding = DataBindingUtil.<FragmentProjectDetailsBinding>inflate(inflater, R.layout.fragment_project_details, container, false);
 
         // Create and set the adapter for the RecyclerView.
         return binding.getRoot();

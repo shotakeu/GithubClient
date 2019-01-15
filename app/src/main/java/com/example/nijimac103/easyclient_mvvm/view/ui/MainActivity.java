@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //詳細画面への遷移
     public void show(Project project) {
-        ProjectFragment projectFragment = ProjectFragment.forProject(project.name);
+        ProjectFragment projectFragment = ProjectFragment.forProject(project.getName());
 
         getSupportFragmentManager()
                 .beginTransaction()
