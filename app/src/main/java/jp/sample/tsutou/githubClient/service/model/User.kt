@@ -1,6 +1,6 @@
-package com.example.nijimac103.easyclient_mvvm.service.model
+package jp.sample.tsutou.githubClient.service.model
 
-import java.util.Date
+import java.util.*
 
 data class User(
         var login: String?,

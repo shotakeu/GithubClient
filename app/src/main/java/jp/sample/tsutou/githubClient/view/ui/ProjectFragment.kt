@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm.view.ui
+package jp.sample.tsutou.githubClient.view.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -10,9 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.example.nijimac103.easyclient_mvvm.R
-import com.example.nijimac103.easyclient_mvvm.databinding.FragmentProjectDetailsBinding
-import com.example.nijimac103.easyclient_mvvm.viewModel.ProjectViewModel
+import jp.sample.tsutou.githubClient.R
+import jp.sample.tsutou.githubClient.databinding.FragmentProjectDetailsBinding
+import jp.sample.tsutou.githubClient.viewModel.ProjectViewModel
 
 import java.util.Objects
 
@@ -55,7 +55,7 @@ class ProjectFragment : Fragment() {
     }
 
     //Modelのデータを監視するメソッド
-    fun observeViewModel(viewModel: ProjectViewModel) {
+    private fun observeViewModel(viewModel: ProjectViewModel) {
         viewModel.observableProject.observe(this, Observer { project ->
             if (project != null) {
 

@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm.view.adapter
+package jp.sample.tsutou.githubClient.view.adapter
 
 import android.databinding.BindingAdapter
 import android.view.View

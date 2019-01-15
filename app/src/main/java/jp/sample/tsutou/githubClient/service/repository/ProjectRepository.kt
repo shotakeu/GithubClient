@@ -1,10 +1,10 @@
-package com.example.nijimac103.easyclient_mvvm.service.repository
+package jp.sample.tsutou.githubClient.service.repository
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
 
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
+import jp.sample.tsutou.githubClient.service.model.Project
 
 import retrofit2.Call
 import retrofit2.Callback

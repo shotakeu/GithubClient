@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm;
+package jp.sample.tsutou.githubClient;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.nijimac103.easyclient_mvvm", appContext.getPackageName());
+        assertEquals("jp.sample.tsutou.githubClient", appContext.getPackageName());
     }
 }

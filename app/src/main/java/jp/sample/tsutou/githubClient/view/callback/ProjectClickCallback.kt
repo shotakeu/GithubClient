@@ -1,6 +1,6 @@
-package com.example.nijimac103.easyclient_mvvm.view.callback
+package jp.sample.tsutou.githubClient.view.callback
 
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
+import jp.sample.tsutou.githubClient.service.model.Project
 
 /**
  * クリック操作を伝えるinterface

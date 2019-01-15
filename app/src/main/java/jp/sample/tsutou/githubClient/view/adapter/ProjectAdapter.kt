@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm.view.adapter
+package jp.sample.tsutou.githubClient.view.adapter
 
 import android.databinding.DataBindingUtil
 import android.support.v7.util.DiffUtil
@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-import com.example.nijimac103.easyclient_mvvm.R
-import com.example.nijimac103.easyclient_mvvm.databinding.ProjectListItemBinding
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
-import com.example.nijimac103.easyclient_mvvm.view.callback.ProjectClickCallback
+import jp.sample.tsutou.githubClient.R
+import jp.sample.tsutou.githubClient.databinding.ProjectListItemBinding
+import jp.sample.tsutou.githubClient.service.model.Project
+import jp.sample.tsutou.githubClient.view.callback.ProjectClickCallback
 
 
 class ProjectAdapter(private val projectClickCallback: ProjectClickCallback?) :

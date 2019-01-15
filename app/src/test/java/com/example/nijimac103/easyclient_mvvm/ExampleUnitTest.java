@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm;
+package jp.sample.tsutou.githubClient;
 
 import org.junit.Test;
 

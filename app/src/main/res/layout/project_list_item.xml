@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="project" type="com.example.nijimac103.easyclient_mvvm.service.model.Project"/>
-        <variable name="callback" type="com.example.nijimac103.easyclient_mvvm.view.callback.ProjectClickCallback"/>
+        <variable name="project" type="jp.sample.tsutou.githubClient.service.model.Project"/>
+        <variable name="callback" type="jp.sample.tsutou.githubClient.view.callback.ProjectClickCallback"/>
     </data>
 
     <android.support.v7.widget.CardView

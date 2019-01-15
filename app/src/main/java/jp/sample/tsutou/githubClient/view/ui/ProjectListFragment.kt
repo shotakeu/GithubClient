@@ -1,4 +1,4 @@
-package com.example.nijimac103.easyclient_mvvm.view.ui
+package jp.sample.tsutou.githubClient.view.ui
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.Observer
@@ -6,17 +6,15 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.example.nijimac103.easyclient_mvvm.R
-import com.example.nijimac103.easyclient_mvvm.databinding.FragmentProjectListBinding
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
-import com.example.nijimac103.easyclient_mvvm.view.adapter.ProjectAdapter
-import com.example.nijimac103.easyclient_mvvm.view.callback.ProjectClickCallback
-import com.example.nijimac103.easyclient_mvvm.viewModel.ProjectListViewModel
+import jp.sample.tsutou.githubClient.R
+import jp.sample.tsutou.githubClient.databinding.FragmentProjectListBinding
+import jp.sample.tsutou.githubClient.service.model.Project
+import jp.sample.tsutou.githubClient.view.adapter.ProjectAdapter
+import jp.sample.tsutou.githubClient.view.callback.ProjectClickCallback
+import jp.sample.tsutou.githubClient.viewModel.ProjectListViewModel
 
 /**
  *Project一覧のFragment

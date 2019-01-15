@@ -1,12 +1,12 @@
-package com.example.nijimac103.easyclient_mvvm.viewModel
+package jp.sample.tsutou.githubClient.viewModel
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 
-import com.example.nijimac103.easyclient_mvvm.R
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
-import com.example.nijimac103.easyclient_mvvm.service.repository.ProjectRepository
+import jp.sample.tsutou.githubClient.R
+import jp.sample.tsutou.githubClient.service.model.Project
+import jp.sample.tsutou.githubClient.service.repository.ProjectRepository
 
 /**
  * List<Project>のrepositoryから送られてくるデータとuiイベントに責務を持つViewModel

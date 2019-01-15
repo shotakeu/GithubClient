@@ -1,10 +1,9 @@
-package com.example.nijimac103.easyclient_mvvm.view.ui
+package jp.sample.tsutou.githubClient.view.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-
-import com.example.nijimac103.easyclient_mvvm.R
-import com.example.nijimac103.easyclient_mvvm.service.model.Project
+import android.support.v7.app.AppCompatActivity
+import jp.sample.tsutou.githubClient.R
+import jp.sample.tsutou.githubClient.service.model.Project
 
 class MainActivity : AppCompatActivity() {
 
