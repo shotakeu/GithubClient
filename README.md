@@ -1,3 +1,6 @@
+## サンプル学習用Githubのクライアントアプリです。
+Kotlin/Javaでブランチを分けています。
+
 ## [MVVM( Model-View-ViewModel )設計](https://ja.wikipedia.org/wiki/Model_View_ViewModel)
 ***
 
