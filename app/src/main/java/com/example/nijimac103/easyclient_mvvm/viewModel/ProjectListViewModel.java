@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
+import com.example.nijimac103.easyclient_mvvm.R;
 import com.example.nijimac103.easyclient_mvvm.service.model.Project;
 import com.example.nijimac103.easyclient_mvvm.service.repository.ProjectRepository;
 
@@ -20,12 +21,12 @@ public class ProjectListViewModel extends AndroidViewModel {
     //監視対象のLiveData
     private final LiveData<List<Project>> projectListObservable;
 
-    public ProjectListViewModel(Application application){
+    public ProjectListViewModel(Application application) {
         super(application);
 
         //Repositoryからインスタンスを取得し、getProjectListを呼び出し、LiveDataオブジェクトに。
         //変換が必要な場合、これをTransformationsクラスで単純に行うことができます。
-        projectListObservable = ProjectRepository.getInstance().getProjectList("Tsutou");
+        projectListObservable = ProjectRepository.getInstance().getProjectList(getApplication().getString(R.string.github_user_name));
     }
 
     //UIが観察できるようにコンストラクタで取得したLiveDataを公開する
