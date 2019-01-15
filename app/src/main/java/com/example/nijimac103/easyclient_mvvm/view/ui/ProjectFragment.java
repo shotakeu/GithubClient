@@ -15,6 +15,8 @@ import com.example.nijimac103.easyclient_mvvm.databinding.FragmentProjectDetails
 import com.example.nijimac103.easyclient_mvvm.service.model.Project;
 import com.example.nijimac103.easyclient_mvvm.viewModel.ProjectViewModel;
 
+import java.util.Objects;
+
 
 public class ProjectFragment extends Fragment {
 
@@ -37,8 +39,9 @@ public class ProjectFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //DI
+        assert getArguments() != null;
         ProjectViewModel.Factory factory = new ProjectViewModel.Factory(
-                getActivity().getApplication(), getArguments().getString(KEY_PROJECT_ID)
+                Objects.requireNonNull(getActivity()).getApplication(), getArguments().getString(KEY_PROJECT_ID)
         );
 
         //project_idをキーに注入してViewModelインスタンスを取得

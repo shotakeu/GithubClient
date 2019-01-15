@@ -19,6 +19,7 @@ import com.example.nijimac103.easyclient_mvvm.view.callback.ProjectClickCallback
 import com.example.nijimac103.easyclient_mvvm.viewModel.ProjectListViewModel;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -76,7 +77,7 @@ public class ProjectListFragment extends Fragment {
         @Override
         public void onClick(Project project) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                ((MainActivity) getActivity()).show(project);
+                ((MainActivity) Objects.requireNonNull(getActivity())).show(project);
             }
         }
     };

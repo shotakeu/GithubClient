@@ -2,7 +2,9 @@ package com.example.nijimac103.easyclient_mvvm.service.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.nijimac103.easyclient_mvvm.service.model.Project;
 
@@ -51,16 +53,18 @@ public class ProjectRepository {
         final MutableLiveData<List<Project>> data = new MutableLiveData<>();
 
         //Retrofitで非同期リクエスト->Callbackで(自分で実装したModel)型ListのMutableLiveDataにセット
-        githubService.getProjectList(userId).enqueue(new Callback<List<Project>>(){
+        githubService.getProjectList(userId).enqueue(new Callback<List<Project>>() {
             @Override
-            public void onResponse(Call<List<Project>> call,@Nullable Response<List<Project>> response){
-                data.setValue(response.body());
+            public void onResponse(@NonNull Call<List<Project>> call, @Nullable Response<List<Project>> response) {
+                data.postValue(response.body());
+                Log.d("logs:", "getProjectList" + String.valueOf(response.body()));
             }
 
             @Override
-            public void onFailure(Call<List<Project>> call, Throwable t){
+            public void onFailure(@NonNull Call<List<Project>> call, Throwable t) {
                 //TODO: null代入良くない + エラー処理
-                data.setValue(null);
+                data.postValue(null);
+                Log.d("logs:", "getProjectList:onFailure");
             }
         });
 
@@ -69,20 +73,23 @@ public class ProjectRepository {
 
     //APIにリクエストし、レスポンスをLiveDataで返す(詳細)
     //うまくenqueueでのCallbackをOverrideできない場合、Retrofitインターフェースの型指定など間違えて居る可能性あり
-    public LiveData<Project> getProjectDetails(String userID,String projectName) {
+    public LiveData<Project> getProjectDetails(String userID, String projectName) {
         final MutableLiveData<Project> data = new MutableLiveData<>();
 
-        githubService.getProjectDetails(userID,projectName).enqueue(new Callback<Project>() {
+        githubService.getProjectDetails(userID, projectName).enqueue(new Callback<Project>() {
             @Override
-            public void onResponse(Call<Project> call, Response<Project> response) {
+            public void onResponse(@NonNull Call<Project> call, @NonNull Response<Project> response) {
                 simulateDelay();
-                data.setValue(response.body());
+                data.postValue(response.body());
+                Log.d("logs:", "getProjectDetails" + String.valueOf(response.body()));
             }
 
             @Override
-            public void onFailure(Call<Project> call, Throwable t) {
+            public void onFailure(@NonNull Call<Project> call, @NonNull Throwable t) {
                 //TODO: null代入良くない + エラー処理
-                data.setValue(null);
+                data.postValue(null);
+
+                Log.d("logs:", "getProjectDetails:onFailure");
             }
         });
         return data;
