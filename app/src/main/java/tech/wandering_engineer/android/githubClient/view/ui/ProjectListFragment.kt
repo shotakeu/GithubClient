@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import tech.wandering_engineer.android.githubClient.R
 import tech.wandering_engineer.android.githubClient.databinding.FragmentProjectListBinding
-import tech.wandering_engineer.android.githubClient.service.model.Project
+import tech.wandering_engineer.android.githubClient.service.model.GithubProject
 import tech.wandering_engineer.android.githubClient.view.adapter.ProjectAdapter
 import tech.wandering_engineer.android.githubClient.view.callback.ProjectClickCallback
 import tech.wandering_engineer.android.githubClient.viewModel.ProjectListViewModel
@@ -29,9 +29,9 @@ class ProjectListFragment : Fragment() {
 
     //callbackに操作イベントを設定
     private val projectClickCallback = object : ProjectClickCallback {
-        override fun onClick(project: Project) {
+        override fun onClick(githubProject: GithubProject) {
             if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) && activity is MainActivity) {
-                (activity as MainActivity).show(project)
+                (activity as MainActivity).show(githubProject)
             }
         }
     }
@@ -44,7 +44,7 @@ class ProjectListFragment : Fragment() {
         //イベントのcallbackをadapterに伝達
         projectAdapter = ProjectAdapter(projectClickCallback)
 
-        //上記adapterをreclclerViewに適用
+        //上記adapterをrecyclerViewに適用
         requireNotNull(binding).projectList.adapter = projectAdapter
         //Loading開始
         requireNotNull(binding).isLoading = true
@@ -64,7 +64,7 @@ class ProjectListFragment : Fragment() {
 
         //データが更新されたらアップデートするように、LifecycleOwnerを紐付け、ライフサイクル内にオブザーバを追加
         //オブザーバーは、STARTED かRESUMED状態である場合にのみ、イベントを受信する
-        viewModel.projectListObservable.observe(this, Observer { projects ->
+        viewModel.githubProjectListObservable.observe(this, Observer { projects ->
             if (projects != null) {
                 requireNotNull(binding).isLoading = false
                 projectAdapter!!.setProjectList(projects)

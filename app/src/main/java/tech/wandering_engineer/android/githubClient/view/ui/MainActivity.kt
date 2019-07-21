@@ -3,7 +3,7 @@ package tech.wandering_engineer.android.githubClient.view.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import tech.wandering_engineer.android.githubClient.R
-import tech.wandering_engineer.android.githubClient.service.model.Project
+import tech.wandering_engineer.android.githubClient.service.model.GithubProject
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     //詳細画面への遷移
-    fun show(project: Project) {
-        val projectFragment = ProjectFragment.forProject(project.name)
+    fun show(githubProject: GithubProject) {
+        val projectFragment = ProjectFragment.forProject(githubProject.name)
 
         supportFragmentManager
                 .beginTransaction()
-                .addToBackStack("project")
+                .addToBackStack("githubProject")
                 .replace(R.id.fragment_container, projectFragment, null)
                 .commit()
     }

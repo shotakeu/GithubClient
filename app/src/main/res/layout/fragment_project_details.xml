@@ -46,7 +46,7 @@
                 android:contentDescription="@string/project_name"
                 android:textStyle="bold"
                 android:textSize="@dimen/project_header1"
-                android:text="@{projectViewModel.project.name}"
+                android:text="@{projectViewModel.githubProject.name}"
                 android:textAlignment="center"
                 android:paddingBottom="5dp"/>
 
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_description"
                 android:textSize="@dimen/project_header2"
-                android:text="@{projectViewModel.project.description}"/>
+                android:text="@{projectViewModel.githubProject.description}"/>
 
             <TextView
                 android:id="@+id/languages"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_language"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/languages, projectViewModel.project.language)}"/>
+                android:text="@{String.format(@string/languages, projectViewModel.githubProject.language)}"/>
 
             <TextView
                 android:id="@+id/project_watchers"
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_watchers"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/watchers, projectViewModel.project.watchers)}"/>
+                android:text="@{String.format(@string/watchers, projectViewModel.githubProject.watchers)}"/>
 
             <TextView
                 android:id="@+id/project_open_issues"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/open_issues"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/openIssues, projectViewModel.project.open_issues)}"/>
+                android:text="@{String.format(@string/openIssues, projectViewModel.githubProject.open_issues)}"/>
 
 
             <TextView
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="Created At"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/created_at, projectViewModel.project.created_at)}"/>
+                android:text="@{String.format(@string/created_at, projectViewModel.githubProject.created_at)}"/>
 
             <TextView
                 android:id="@+id/project_updated_at"
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="Updated At"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/updated_at, projectViewModel.project.updated_at)}"/>
+                android:text="@{String.format(@string/updated_at, projectViewModel.githubProject.updated_at)}"/>
 
             <TextView
                 android:id="@+id/clone_url"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/open_issues"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/clone_url, projectViewModel.project.clone_url)}"/>
+                android:text="@{String.format(@string/clone_url, projectViewModel.githubProject.clone_url)}"/>
 
         </LinearLayout>
 

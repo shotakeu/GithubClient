@@ -1,6 +1,6 @@
 package tech.wandering_engineer.android.githubClient.service.repository
 
-import tech.wandering_engineer.android.githubClient.service.model.Project
+import tech.wandering_engineer.android.githubClient.service.model.GithubProject
 
 import retrofit2.Call
 import retrofit2.http.GET
@@ -13,10 +13,10 @@ internal interface GithubService {
 
     //一覧
     @GET("users/{user}/repos")
-    fun getProjectList(@Path("user") user: String): Call<List<Project>>
+    fun getProjectList(@Path("user") user: String): Call<List<GithubProject>>
 
     //詳細
     @GET("/repos/{user}/{reponame}")
-    fun getProjectDetails(@Path("user") user: String, @Path("reponame") projectName: String): Call<Project>
+    fun getProjectDetails(@Path("user") user: String, @Path("reponame") projectName: String): Call<GithubProject>
 
 }

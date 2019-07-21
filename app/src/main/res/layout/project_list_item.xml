@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="project" type="tech.wandering_engineer.android.githubClient.service.model.Project"/>
+        <variable name="githubProject" type="tech.wandering_engineer.android.githubClient.service.model.GithubProject"/>
         <variable name="callback" type="tech.wandering_engineer.android.githubClient.view.callback.ProjectClickCallback"/>
     </data>
 
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:onClick="@{() ->  callback.onClick(project)}"
+        android:onClick="@{() ->  callback.onClick(githubProject)}"
         android:layout_marginStart="@dimen/item_horizontal_margin"
         android:layout_marginEnd="@dimen/item_horizontal_margin"
         app:cardUseCompatPadding="true">
@@ -32,7 +32,7 @@
                 android:contentDescription="@string/project_name"
                 android:textStyle="bold"
                 android:textSize="@dimen/project_text"
-                android:text="@{project.name}"/>
+                android:text="@{githubProject.name}"/>
 
             <TextView
                 android:id="@+id/languages"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_language"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/languages, project.language)}"/>
+                android:text="@{String.format(@string/languages, githubProject.language)}"/>
 
             <TextView
                 android:id="@+id/project_watchers"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_watchers"
                 android:textSize="@dimen/project_text"
-                android:text="@{String.format(@string/watchers, project.watchers)}"/>
+                android:text="@{String.format(@string/watchers, githubProject.watchers)}"/>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

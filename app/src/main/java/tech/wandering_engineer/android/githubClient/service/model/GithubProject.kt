@@ -2,7 +2,7 @@ package tech.wandering_engineer.android.githubClient.service.model
 
 import java.util.*
 
-data class Project(val userName: String) {
+data class GithubProject(val userName: String) {
     var id: Long = 0
     var name: String = userName
     var full_name: String? = null

@@ -146,9 +146,9 @@ obj/
 ehthumbs.db
 Thumbs.db
 
-# Legacy Eclipse project files
+# Legacy Eclipse githubProject files
 .classpath
-.project
+.githubProject
 .cproject
 .settings/
 

@@ -56,7 +56,7 @@ class ProjectFragment : Fragment() {
 
     //Modelのデータを監視するメソッド
     private fun observeViewModel(viewModel: ProjectViewModel) {
-        viewModel.observableProject.observe(this, Observer { project ->
+        viewModel.observableGithubProject.observe(this, Observer { project ->
             if (project != null) {
 
                 requireNotNull(binding).isLoading = false

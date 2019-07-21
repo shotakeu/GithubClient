@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">MVVM Github Client</string>
     <string name="loading_projects">Loading projects …</string>
-    <string name="projects_list">Project リスト</string>
+    <string name="projects_list">GithubProject リスト</string>
     <string name="project_name">タイトル</string>
     <string name="github_projects">Your GitHub Projects!!</string>
-    <string name="project_list">Project List</string>
+    <string name="project_list">GithubProject List</string>
     <string name="languages">プログラミング言語: %s</string>
     <string name="watchers">Watchers: %s</string>
     <string name="openIssues">Open Issues: %s</string>
     <string name="created_at">作った時間: %s</string>
     <string name="updated_at">最後にアップデートされた時間: %s</string>
     <string name="clone_url">CloneするURL: %s</string>
-    <string name="project_language">Project Language</string>
-    <string name="project_watchers">Project Watchers</string>
-    <string name="project_description">Project Description</string>
+    <string name="project_language">GithubProject Language</string>
+    <string name="project_watchers">GithubProject Watchers</string>
+    <string name="project_description">GithubProject Description</string>
     <string name="open_issues">開かれているIssues</string>
-    <string name="loading_project">Loading Project …</string>
+    <string name="loading_project">Loading GithubProject …</string>
     <string name="github_user_name">shotakeu</string>
 
     <!-- TODO: Remove or change this placeholder text -->

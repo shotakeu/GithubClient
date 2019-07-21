@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
 
-import tech.wandering_engineer.android.githubClient.service.model.Project
+import tech.wandering_engineer.android.githubClient.service.model.GithubProject
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,19 +32,19 @@ class ProjectRepository private constructor() {
     }
 
     //APIにリクエストし、レスポンスをLiveDataで返す(一覧)
-    fun getProjectList(userId: String): LiveData<List<Project>> {
-        val data = MutableLiveData<List<Project>>()
+    fun getProjectList(userId: String): LiveData<List<GithubProject>> {
+        val data = MutableLiveData<List<GithubProject>>()
 
         //Retrofitで非同期リクエスト->Callbackで(自分で実装したModel)型ListのMutableLiveDataにセット
-        githubService.getProjectList(userId).enqueue(object : Callback<List<Project>> {
-            override fun onResponse(call: Call<List<Project>>, response: Response<List<Project>>?) {
+        githubService.getProjectList(userId).enqueue(object : Callback<List<GithubProject>> {
+            override fun onResponse(call: Call<List<GithubProject>>, response: Response<List<GithubProject>>?) {
                 if (response != null) {
                     data.postValue(response.body())
                     Log.d("logs:", "getProjectList" + response.body().toString())
                 }
             }
 
-            override fun onFailure(call: Call<List<Project>>, t: Throwable) {
+            override fun onFailure(call: Call<List<GithubProject>>, t: Throwable) {
                 //TODO: null代入良くない + エラー処理
                 data.postValue(null)
                 Log.d("logs:", "getProjectList:onFailure")
@@ -56,11 +56,11 @@ class ProjectRepository private constructor() {
 
     //APIにリクエストし、レスポンスをLiveDataで返す(詳細)
     //うまくenqueueでのCallbackをOverrideできない場合、Retrofitインターフェースの型指定など間違えて居る可能性あり
-    fun getProjectDetails(userID: String, projectName: String): LiveData<Project> {
-        val data = MutableLiveData<Project>()
+    fun getProjectDetails(userID: String, projectName: String): LiveData<GithubProject> {
+        val data = MutableLiveData<GithubProject>()
 
-        githubService.getProjectDetails(userID, projectName).enqueue(object : Callback<Project> {
-            override fun onResponse(call: Call<Project>, response: Response<Project>?) {
+        githubService.getProjectDetails(userID, projectName).enqueue(object : Callback<GithubProject> {
+            override fun onResponse(call: Call<GithubProject>, response: Response<GithubProject>?) {
                 if (response != null) {
                     simulateDelay()
                     data.postValue(response.body())
@@ -68,7 +68,7 @@ class ProjectRepository private constructor() {
                 }
             }
 
-            override fun onFailure(call: Call<Project>, t: Throwable) {
+            override fun onFailure(call: Call<GithubProject>, t: Throwable) {
                 //TODO: null代入良くない + エラー処理
                 data.postValue(null)
 

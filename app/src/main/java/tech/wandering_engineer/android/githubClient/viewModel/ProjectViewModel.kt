@@ -8,21 +8,21 @@ import android.arch.lifecycle.ViewModelProvider
 import android.databinding.ObservableField
 
 import tech.wandering_engineer.android.githubClient.R
-import tech.wandering_engineer.android.githubClient.service.model.Project
+import tech.wandering_engineer.android.githubClient.service.model.GithubProject
 import tech.wandering_engineer.android.githubClient.service.repository.ProjectRepository
 
 class ProjectViewModel(application: Application, mProjectID: String) : AndroidViewModel(application) {
 
-    val observableProject: LiveData<Project> =
+    val observableGithubProject: LiveData<GithubProject> =
             ProjectRepository
                     .instance
                     .getProjectDetails(application.getString(R.string.github_user_name), mProjectID)
 
-    var project = ObservableField<Project>()
+    var project = ObservableField<GithubProject>()
 
     //セッター
-    fun setProject(project: Project) {
-        this.project.set(project)
+    fun setProject(githubProject: GithubProject) {
+        this.project.set(githubProject)
     }
 
     /**
