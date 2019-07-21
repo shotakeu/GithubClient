@@ -72,7 +72,7 @@ class ProjectAdapter(private val projectClickCallback: ProjectClickCallback?) :
 
     //ViewHolderをDataBindする
     override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
-        holder.binding.project = requireNotNull(githubProjectList)[position]
+        holder.binding.githubProject = requireNotNull(githubProjectList)[position]
         holder.binding.executePendingBindings()
     }
 
